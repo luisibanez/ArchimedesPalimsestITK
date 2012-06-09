@@ -24,14 +24,41 @@ create_test_sourcelist(TESTS_SOURCE_LIST
 add_executable(archimedesCxxTests ${TESTS_SOURCE_LIST})
 target_link_libraries(archimedesCxxTests ${ITK_LIBRARIES} ${VTK_LIBRARIES})
 
+macro(region_test image_band)
 archimedes_add_test(extHeibergTest
   ${EXECUTABLE_OUTPUT_PATH}/archimedesCxxTests
   ExtractRegionOfInterestTest
-  DATA{${Archimedes_DATA_ROOT}/099v-101r/099v-101r_Arch51v_Heiberg_ultraviolet_stitch.jpg}
+  DATA{${Archimedes_DATA_ROOT}/099v-101r/099v-101r_Arch51v_${image_band}.jpg}
   100 100  # Start index
   256 256  # Region size
-  ${TEMP}/099v-101r_Arch51v_Heiberg_ultraviolet_stitch_region.jpg
+  ${TEMP}/099v-101r_Arch51v_${image_band}_region.jpg
   )
+endmacro()
+
+region_test(Heiberg_ultraviolet_stitch)
+region_test(Heiberg_visible_stitch)
+region_test(Sinar_LED365_01_pack8)
+region_test(Sinar_LED445_01_pack8)
+region_test(Sinar_LED470_01_pack8)
+region_test(Sinar_LED505_01_pack8)
+region_test(Sinar_LED530_01_pack8)
+region_test(Sinar_LED570_01_pack8)
+region_test(Sinar_LED617_01_pack8)
+region_test(Sinar_LED625_01_pack8)
+region_test(Sinar_LED700_01_pack8)
+region_test(Sinar_LED735_01_pack8)
+region_test(Sinar_LED870_01_pack8)
+region_test(Sinar_RAKBLL_01_pack8)
+region_test(Sinar_RAKBLR_01_pack8)
+region_test(Sinar_RAKIRL_01_pack8)
+region_test(Sinar_RAKIRR_01_pack8)
+region_test(Sinar_TNGSTN_01_pack8)
+region_test(Sinar_pseudo_no-veil)
+region_test(Sinar_pseudo_sharpie)
+region_test(Sinar_true_pack8)
+region_test(Sinar_ultraviolet_norm8)
+region_test(Sinar_uvblue_norm8)
+
 
 #
 # Create target to download data from the ArchimedesPalimsestITKTestData group.  This must come after
