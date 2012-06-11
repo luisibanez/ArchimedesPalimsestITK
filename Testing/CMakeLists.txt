@@ -31,7 +31,7 @@ archimedes_add_test(ext_${image_band}_${format}
   DATA{${Archimedes_DATA_ROOT}/099v-101r/099v-101r_Arch51v_${image_band}.${format}}
   100 100  # Start index
   256 256  # Region size
-  ${TEMP}/099v-101r_Arch51v_${image_band}_region.jpg
+  ${TEMP}/099v-101r_Arch51v_${image_band}_region.${format}
   )
 endmacro()
 
