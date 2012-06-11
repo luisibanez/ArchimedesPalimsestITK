@@ -25,7 +25,7 @@ add_executable(archimedesCxxTests ${TESTS_SOURCE_LIST})
 target_link_libraries(archimedesCxxTests ${ITK_LIBRARIES} ${VTK_LIBRARIES})
 
 macro(region_test image_band format)
-archimedes_add_test(extHeibergTest
+archimedes_add_test(ext_${image_band}_${format}
   ${EXECUTABLE_OUTPUT_PATH}/archimedesCxxTests
   ExtractRegionOfInterestTest
   DATA{${Archimedes_DATA_ROOT}/099v-101r/099v-101r_Arch51v_${image_band}.${format}}
